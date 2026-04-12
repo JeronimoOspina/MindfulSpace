@@ -75,7 +75,21 @@ export class ApiError extends Error {
   }
 }
 
-const API_URL = import.meta.env.VITE_API_URL?.trim() || (import.meta.env.PROD ? "/api" : "http://localhost:4000/api");
+const resolveApiUrl = (): string => {
+  const envUrl = import.meta.env.VITE_API_URL?.trim();
+  const fallback = import.meta.env.PROD ? "/api" : "http://localhost:4000/api";
+  const raw = envUrl || fallback;
+
+  // Si no es absoluta, aseguramos slash inicial para evitar rutas relativas como "api/...".
+  if (!/^https?:\/\//i.test(raw)) {
+    const prefixed = raw.startsWith("/") ? raw : `/${raw}`;
+    return prefixed.replace(/\/+$/, "");
+  }
+
+  return raw.replace(/\/+$/, "");
+};
+
+const API_URL = resolveApiUrl();
 
 async function request<T>(path: string, options: RequestInit = {}, token?: string): Promise<T> {
   const headers = new Headers(options.headers || {});
