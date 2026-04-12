@@ -32,9 +32,15 @@ export function createApp() {
   );
   app.use(express.json());
 
-  app.get("/api/health", (_req, res) => {
+  app.get(["/api/health", "/health"], (_req, res) => {
     res.json({ status: "ok" });
   });
+
+  // Compatibilidad: en algunos entornos serverless el prefijo /api puede venir removido.
+  app.use("/auth", authRouter);
+  app.use("/chat", chatRouter);
+  app.use("/content", contentRouter);
+  app.use("/wellness", wellnessRouter);
 
   app.use("/api/auth", authRouter);
   app.use("/api/chat", chatRouter);
