@@ -1,0 +1,5 @@
+[submodule "Proyecto/mindful-space"]
+	path = Proyecto/mindful-space
+	url = https://github.com/JeronimoOspina/Mindful-Space-Frontend.git
+	branch = main
+
