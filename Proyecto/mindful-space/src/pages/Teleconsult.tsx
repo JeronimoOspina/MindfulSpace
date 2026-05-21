@@ -92,7 +92,19 @@ export default function Teleconsult() {
           roomName: activeRoom,
           parentNode: containerRef.current as HTMLElement,
           configOverwrite: { prejoinPageEnabled: false },
-          interfaceConfigOverwrite: { TOOLBAR_BUTTONS: [] },
+          interfaceConfigOverwrite: {
+            // Keep essential toolbar buttons so users can toggle mic/cam/fullscreen
+            TOOLBAR_BUTTONS: [
+              "microphone",
+              "camera",
+              "hangup",
+              "desktop",
+              "fullscreen",
+              "chat",
+              "tileview",
+              "settings",
+            ],
+          },
         };
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
@@ -227,12 +239,26 @@ export default function Teleconsult() {
             {activeRoom && (
               <div className="space-y-3">
                 <p className="text-sm text-muted-foreground">Sala activa: {activeRoom}</p>
-                <div className="flex items-start gap-3">
-                  <div className="flex-1 aspect-video rounded-lg overflow-hidden border border-border">
-                    <div ref={containerRef} className="w-full h-full" />
+                <div className="flex flex-col lg:flex-row items-start gap-4">
+                  <div className="flex-1 w-full">
+                    <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+                      <div className="absolute inset-0 rounded-lg overflow-hidden border border-border bg-black">
+                        <div ref={containerRef} className="w-full h-full" />
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-shrink-0">
-                    <Button variant="destructive" onClick={endCall}>Cerrar videollamada</Button>
+
+                  <div className="flex-shrink-0 flex flex-col gap-3">
+                    <Button onClick={() => { try { apiRef.current?.executeCommand?.('toggleAudio'); } catch(e){} }}>
+                      {/** Icon can be added; keep text concise */}
+                      Alternar micrófono
+                    </Button>
+                    <Button onClick={() => { try { apiRef.current?.executeCommand?.('toggleVideo'); } catch(e){} }}>
+                      Alternar cámara
+                    </Button>
+                    <Button variant="destructive" onClick={() => { try { apiRef.current?.executeCommand?.('hangup'); } catch(e){ endCall(); } }}>
+                      Cerrar videollamada
+                    </Button>
                   </div>
                 </div>
               </div>
