@@ -1,5 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+
+declare global {
+  interface Window {
+    JitsiMeetExternalAPI?: any;
+  }
+}
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -48,6 +54,67 @@ export default function Teleconsult() {
     setActiveRoom(room);
     setRoomInput(room);
   };
+
+  const apiRef = useRef<any>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const endCall = () => {
+    try {
+      apiRef.current?.dispose?.();
+    } catch (e) {
+      // ignore dispose errors
+    }
+    apiRef.current = null;
+    setActiveRoom("");
+  };
+
+  useEffect(() => {
+    let mounted = true;
+    if (!activeRoom) return;
+
+    const loadAndStart = async () => {
+      if (!mounted) return;
+      if (!window.JitsiMeetExternalAPI) {
+        await new Promise<void>((resolve, reject) => {
+          const s = document.createElement("script");
+          s.src = "https://meet.jit.si/external_api.js";
+          s.async = true;
+          s.onload = () => resolve();
+          s.onerror = (err) => reject(err);
+          document.head.appendChild(s);
+        });
+      }
+
+      if (!mounted) return;
+      try {
+        const domain = "meet.jit.si";
+        const options = {
+          roomName: activeRoom,
+          parentNode: containerRef.current as HTMLElement,
+          configOverwrite: { prejoinPageEnabled: false },
+          interfaceConfigOverwrite: { TOOLBAR_BUTTONS: [] },
+        };
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        apiRef.current = new window.JitsiMeetExternalAPI(domain, options);
+        apiRef.current.addEventListener?.("readyToClose", () => {
+          endCall();
+        });
+      } catch (err) {
+        console.error("Error starting Jitsi call:", err);
+      }
+    };
+
+    loadAndStart();
+
+    return () => {
+      mounted = false;
+      try {
+        apiRef.current?.dispose?.();
+      } catch (e) {}
+      apiRef.current = null;
+    };
+  }, [activeRoom]);
 
   return (
     <div className="min-h-screen py-12 px-4">
@@ -160,13 +227,13 @@ export default function Teleconsult() {
             {activeRoom && (
               <div className="space-y-3">
                 <p className="text-sm text-muted-foreground">Sala activa: {activeRoom}</p>
-                <div className="aspect-video rounded-lg overflow-hidden border border-border">
-                  <iframe
-                    title="Teleconsulta MindfulSpace"
-                    src={`https://meet.jit.si/${encodeURIComponent(activeRoom)}#config.prejoinPageEnabled=false`}
-                    className="w-full h-full"
-                    allow="camera; microphone; fullscreen; display-capture"
-                  />
+                <div className="flex items-start gap-3">
+                  <div className="flex-1 aspect-video rounded-lg overflow-hidden border border-border">
+                    <div ref={containerRef} className="w-full h-full" />
+                  </div>
+                  <div className="flex-shrink-0">
+                    <Button variant="destructive" onClick={endCall}>Cerrar videollamada</Button>
+                  </div>
                 </div>
               </div>
             )}
