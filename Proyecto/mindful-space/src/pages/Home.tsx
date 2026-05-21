@@ -6,9 +6,9 @@ import { Heart, Wind, Calendar, MessageCircle, Brain, Smile, Shield, BookOpen, M
 const features = [
   { icon: Wind, title: "Ejercicios de Respiración", desc: "Técnicas guiadas para reducir la ansiedad y encontrar la calma interior.", to: "/exercises", color: "bg-mindwell-sky" },
   { icon: BookOpen, title: "Biblioteca de Contenido", desc: "Artículos breves y prácticos sobre ansiedad, estrés y bienestar emocional.", to: "/library", color: "bg-mindwell-lavender" },
-  { icon: Brain, title: "Informacion en Salud Mental", desc: "Conoce señales clave sobre ansiedad, depresion y estres de forma clara.", to: "/mental-health-info", color: "bg-mindwell-sage" },
-  { icon: Music, title: "Musica para Relajarte", desc: "Playlist por categoria para pausar, respirar y regular emociones.", to: "/music", color: "bg-mindwell-peach" },
-  { icon: ClipboardCheck, title: "Autoevaluacion", desc: "Test orientativo de ansiedad para identificar como te sientes hoy.", to: "/self-assessment", color: "bg-mindwell-sky" },
+  { icon: Brain, title: "Información en Salud Mental", desc: "Conoce señales clave sobre ansiedad, depresión y estrés de forma clara.", to: "/mental-health-info", color: "bg-mindwell-sage" },
+  { icon: Music, title: "Música para Relajarte", desc: "Playlist por categoría para pausar, respirar y regular emociones.", to: "/music", color: "bg-mindwell-peach" },
+  { icon: ClipboardCheck, title: "Autoevaluación", desc: "Test orientativo de ansiedad para identificar cómo te sientes hoy.", to: "/self-assessment", color: "bg-mindwell-sky" },
   { icon: Calendar, title: "Teleconsulta", desc: "Agenda citas con profesionales de salud mental desde la comodidad de tu hogar.", to: "/teleconsult", color: "bg-mindwell-sage" },
   { icon: MessageCircle, title: "Chatbot de Apoyo", desc: "Un compañero digital disponible 24/7 para escucharte y orientarte.", to: "/chatbot", color: "bg-mindwell-lavender" },
 ];

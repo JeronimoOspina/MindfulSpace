@@ -30,7 +30,7 @@ const scoreSchema = z.object({
 export const musicCatalog: MusicTrack[] = [
   {
     id: "music-1",
-    title: "Respiracion y calma",
+    title: "Respiración y calma",
     category: "ansiedad",
     source: "youtube",
     embedUrl: "https://www.youtube-nocookie.com/embed/1ZYbU82GVz4?rel=0&modestbranding=1",
@@ -47,7 +47,7 @@ export const musicCatalog: MusicTrack[] = [
 
   {
     id: "music-4",
-    title: "Meditacion suave para ansiedad",
+    title: "Meditación suave para ansiedad",
     category: "ansiedad",
     source: "youtube",
     embedUrl: "https://www.youtube-nocookie.com/embed/1ZYbU82GVz4?rel=0&modestbranding=1&start=180",
@@ -55,7 +55,7 @@ export const musicCatalog: MusicTrack[] = [
   },
   {
     id: "music-5",
-    title: "Lluvia y piano para soltar tension",
+    title: "Lluvia y piano para soltar tensión",
     category: "estres",
     source: "youtube",
     embedUrl: "https://www.youtube-nocookie.com/embed/ZToicYcHIOU?rel=0&modestbranding=1&start=150",
@@ -72,7 +72,7 @@ export const musicCatalog: MusicTrack[] = [
   },
   {
     id: "music-8",
-    title: "Pausa de tarde para estres alto",
+    title: "Pausa de tarde para estrés alto",
     category: "estres",
     source: "youtube",
     embedUrl: "https://www.youtube-nocookie.com/embed/ZToicYcHIOU?rel=0&modestbranding=1&start=360",
@@ -86,35 +86,35 @@ export const mentalHealthTopics: MentalHealthTopic[] = [
     title: "Ansiedad",
     description:
       "La ansiedad es una respuesta natural ante situaciones de alerta, pero puede volverse intensa y frecuente.",
-    symptoms: ["Preocupacion constante", "Tension muscular", "Dificultad para concentrarse"],
+    symptoms: ["Preocupación constante", "Tensión muscular", "Dificultad para concentrarse"],
     recommendations: [
-      "Practica respiracion 4-7-8 por 3 minutos",
-      "Reduce cafeina y estimulos antes de dormir",
+      "Practica respiración 4-7-8 por 3 minutos",
+      "Reduce cafeína y estímulos antes de dormir",
       "Busca apoyo profesional si interfiere en tu rutina",
     ],
   },
   {
     id: "depression",
-    title: "Depresion",
+    title: "Depresión",
     description:
-      "La depresion puede afectar el estado de animo, la energia y la motivacion durante semanas o meses.",
-    symptoms: ["Tristeza persistente", "Perdida de interes", "Cambios en sueno o apetito"],
+      "La depresión puede afectar el estado de ánimo, la energía y la motivación durante semanas o meses.",
+    symptoms: ["Tristeza persistente", "Pérdida de interés", "Cambios en sueño o apetito"],
     recommendations: [
-      "Mantener pequenas rutinas diarias",
+      "Mantener pequeñas rutinas diarias",
       "Hablar con alguien de confianza",
       "Consultar a un profesional de salud mental",
     ],
   },
   {
     id: "stress",
-    title: "Estres",
+    title: "Estrés",
     description:
-      "El estres es una reaccion del cuerpo ante demandas externas. Puede manejarse con estrategias simples.",
-    symptoms: ["Irritabilidad", "Cansancio", "Dolor de cabeza o tension fisica"],
+      "El estrés es una reacción del cuerpo ante demandas externas. Puede manejarse con estrategias simples.",
+    symptoms: ["Irritabilidad", "Cansancio", "Dolor de cabeza o tensión física"],
     recommendations: [
       "Haz pausas de 2 minutos cada pocas horas",
       "Prioriza una tarea clave por bloque de tiempo",
-      "Incorpora actividad fisica ligera diaria",
+      "Incorpora actividad física ligera diaria",
     ],
   },
 ];
@@ -122,21 +122,21 @@ export const mentalHealthTopics: MentalHealthTopic[] = [
 export const anxietyTestQuestions: AnxietyQuestion[] = [
   {
     id: "q1",
-    text: "En la ultima semana, ¿con que frecuencia te sentiste nervioso o en tension?",
+    text: "En la última semana, ¿con qué frecuencia te sentiste nervioso o en tensión?",
     options: [
       { label: "Nunca", value: 0 },
       { label: "Algunos dias", value: 1 },
-      { label: "Mas de la mitad de los dias", value: 2 },
+      { label: "Más de la mitad de los días", value: 2 },
       { label: "Casi todos los dias", value: 3 },
     ],
   },
   {
     id: "q2",
-    text: "¿Te costo controlar tus preocupaciones?",
+    text: "¿Te costó controlar tus preocupaciones?",
     options: [
       { label: "Nunca", value: 0 },
       { label: "Algunos dias", value: 1 },
-      { label: "Mas de la mitad de los dias", value: 2 },
+      { label: "Más de la mitad de los días", value: 2 },
       { label: "Casi todos los dias", value: 3 },
     ],
   },
@@ -146,27 +146,27 @@ export const anxietyTestQuestions: AnxietyQuestion[] = [
     options: [
       { label: "Nunca", value: 0 },
       { label: "Algunos dias", value: 1 },
-      { label: "Mas de la mitad de los dias", value: 2 },
+      { label: "Más de la mitad de los días", value: 2 },
       { label: "Casi todos los dias", value: 3 },
     ],
   },
   {
     id: "q4",
-    text: "¿Sentiste inquietud fisica o mental?",
+    text: "¿Sentiste inquietud física o mental?",
     options: [
       { label: "Nunca", value: 0 },
       { label: "Algunos dias", value: 1 },
-      { label: "Mas de la mitad de los dias", value: 2 },
+      { label: "Más de la mitad de los días", value: 2 },
       { label: "Casi todos los dias", value: 3 },
     ],
   },
   {
     id: "q5",
-    text: "¿Te resulto dificil dejar de anticipar escenarios negativos?",
+    text: "¿Te resultó difícil dejar de anticipar escenarios negativos?",
     options: [
       { label: "Nunca", value: 0 },
       { label: "Algunos dias", value: 1 },
-      { label: "Mas de la mitad de los dias", value: 2 },
+      { label: "Más de la mitad de los días", value: 2 },
       { label: "Casi todos los dias", value: 3 },
     ],
   },
@@ -177,25 +177,25 @@ export function scoreAnxietyTest(payload: unknown) {
   const total = input.answers.reduce((sum, value) => sum + value, 0);
 
   let level: "Bajo" | "Medio" | "Alto" = "Bajo";
-  let guidance = "Tu resultado sugiere un nivel bajo de ansiedad. Mantener habitos de autocuidado puede ayudarte.";
+  let guidance = "Tu resultado sugiere un nivel bajo de ansiedad. Mantener hábitos de autocuidado puede ayudarte.";
 
   if (total >= 7 && total <= 11) {
     level = "Medio";
     guidance =
-      "Tu resultado sugiere ansiedad moderada. Considera practicar ejercicios de respiracion y hablar con un profesional si persiste.";
+      "Tu resultado sugiere ansiedad moderada. Considera practicar ejercicios de respiración y hablar con un profesional si persiste.";
   }
 
   if (total >= 12) {
     level = "Alto";
     guidance =
-      "Tu resultado sugiere ansiedad alta. Este test es orientativo, no diagnostico. Te recomendamos buscar apoyo profesional pronto.";
+      "Tu resultado sugiere ansiedad alta. Este test es orientativo, no diagnóstico. Te recomendamos buscar apoyo profesional pronto.";
   }
 
   return {
     total,
     level,
     guidance,
-    disclaimer: "Resultado orientativo. No reemplaza evaluacion clinica profesional.",
+    disclaimer: "Resultado orientativo. No reemplaza evaluación clínica profesional.",
   };
 }
 

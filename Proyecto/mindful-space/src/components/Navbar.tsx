@@ -9,9 +9,9 @@ const navLinks = [
   { to: "/", label: "Inicio" },
   { to: "/exercises", label: "Ejercicios" },
   { to: "/library", label: "Biblioteca" },
-  { to: "/mental-health-info", label: "Informacion" },
-  { to: "/music", label: "Musica" },
-  { to: "/self-assessment", label: "Autoevaluacion" },
+  { to: "/mental-health-info", label: "Información" },
+  { to: "/music", label: "Música" },
+  { to: "/self-assessment", label: "Autoevaluación" },
   { to: "/teleconsult", label: "Teleconsulta" },
   { to: "/chatbot", label: "Chatbot" },
 ];

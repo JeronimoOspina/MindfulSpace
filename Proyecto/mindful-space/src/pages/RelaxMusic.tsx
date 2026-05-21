@@ -10,7 +10,7 @@ type MusicCategory = "all" | "ansiedad" | "estres" | "dormir";
 const labels: Record<MusicCategory, string> = {
   all: "Todas",
   ansiedad: "Ansiedad",
-  estres: "Estres",
+  estres: "Estrés",
   dormir: "Dormir",
 };
 
@@ -34,9 +34,9 @@ export default function RelaxMusic() {
           <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-sm text-primary mb-3">
             <Sparkles className="h-4 w-4" /> Un espacio para bajar revoluciones
           </div>
-          <h1 className="text-3xl font-bold mb-2">Musica para relajarte</h1>
+          <h1 className="text-3xl font-bold mb-2">Música para relajarte</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Elige una categoria y tomate unos minutos para respirar con calma. La idea no es forzarte a "estar bien", sino darte una pausa amable.
+            Elige una categoría y tómate unos minutos para respirar con calma. La idea no es forzarte a "estar bien", sino darte una pausa amable.
           </p>
         </div>
 
@@ -52,8 +52,8 @@ export default function RelaxMusic() {
           ))}
         </div>
 
-        {isLoading && <p className="text-center">Cargando musica...</p>}
-        {isError && <p className="text-center text-destructive">No se pudo cargar la musica relajante.</p>}
+        {isLoading && <p className="text-center">Cargando música...</p>}
+        {isError && <p className="text-center text-destructive">No se pudo cargar la música relajante.</p>}
 
         {!isLoading && !isError && (
           <p className="text-center text-sm text-muted-foreground mb-6 flex items-center justify-center gap-2">

@@ -11,13 +11,13 @@ export default function MentalHealthInfo() {
   return (
     <div className="min-h-screen py-12 px-4">
       <div className="container mx-auto max-w-5xl">
-        <h1 className="text-3xl font-bold text-center mb-2">Informacion sobre salud mental</h1>
+        <h1 className="text-3xl font-bold text-center mb-2">Información sobre salud mental</h1>
         <p className="text-center text-muted-foreground mb-10">
-          Contenido orientativo para comprender ansiedad, depresion y estres.
+          Contenido orientativo para comprender ansiedad, depresión y estrés.
         </p>
 
-        {isLoading && <p className="text-center">Cargando informacion...</p>}
-        {isError && <p className="text-center text-destructive">No se pudo cargar la informacion.</p>}
+        {isLoading && <p className="text-center">Cargando información...</p>}
+        {isError && <p className="text-center text-destructive">No se pudo cargar la información.</p>}
 
         <div className="grid gap-6">
           {data.map((topic) => (
@@ -29,7 +29,7 @@ export default function MentalHealthInfo() {
                 <p className="text-muted-foreground">{topic.description}</p>
 
                 <div>
-                  <p className="font-medium mb-2">Sintomas frecuentes</p>
+                  <p className="font-medium mb-2">Síntomas frecuentes</p>
                   <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                     {topic.symptoms.map((item) => (
                       <li key={item}>{item}</li>
@@ -38,7 +38,7 @@ export default function MentalHealthInfo() {
                 </div>
 
                 <div>
-                  <p className="font-medium mb-2">Recomendaciones basicas</p>
+                  <p className="font-medium mb-2">Recomendaciones básicas</p>
                   <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                     {topic.recommendations.map((item) => (
                       <li key={item}>{item}</li>

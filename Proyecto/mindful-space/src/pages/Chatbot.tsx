@@ -15,13 +15,13 @@ const suggestions = [
   "Me siento ansioso",
   "Necesito relajarme",
   "No puedo dormir",
-  "Tengo mucho estres",
+  "Tengo mucho estrés",
   "Me siento triste",
   "Me siento solo",
   "No tengo energia",
   "Quiero ayuda inmediata",
-  "Quiero escuchar musica",
-  "Necesito una autoevaluacion",
+  "Quiero escuchar música",
+  "Necesito una autoevaluación",
 ];
 
 const responses: Record<string, string> = {
@@ -29,10 +29,10 @@ const responses: Record<string, string> = {
   relajarme: "Claro. Intenta relajar hombros, lengua y mandíbula por 30 segundos. Después haz una pausa breve y vuelve a tu respiración. También puedes usar nuestros ejercicios guiados o una playlist tranquila.",
   dormir: "Para mejorar tu sueño, intenta mantener un horario regular, evita pantallas antes de acostarte y usa una sesión de música para dormir. Si quieres, te comparto una rutina simple de 3 pasos.",
   triste: "Lamento que te sientas así. Está bien pedir apoyo. Hablar con alguien de confianza, mantener una rutina mínima y agendar teleconsulta puede ayudarte a no cargarlo solo.",
-  estres: "Cuando el estres se acumula, sirve dividir el dia en bloques pequeños. Haz una cosa a la vez, toma agua y regresa a tu respiración por un minuto.",
-  ayuda: "Si sientes que necesitas ayuda inmediata, usa el boton flotante de ayuda: tiene las lineas 106, 192 y 165. No estas solo, hay ayuda disponible.",
-  musica: "La musica suave puede ayudar a bajar la activacion. Puedes abrir la seccion de musica relajante y elegir entre ansiedad, estres o dormir.",
-  autoevaluacion: "La autoevaluacion te ayuda a tener una idea orientativa de como te sientes hoy. No reemplaza a un profesional, pero puede ser un primer paso.",
+  estres: "Cuando el estrés se acumula, sirve dividir el día en bloques pequeños. Haz una cosa a la vez, toma agua y regresa a tu respiración por un minuto.",
+  ayuda: "Si sientes que necesitas ayuda inmediata, usa el botón flotante de ayuda: tiene las líneas 106, 192 y 165. No estás solo, hay ayuda disponible.",
+  musica: "La música suave puede ayudar a bajar la activación. Puedes abrir la sección de música relajante y elegir entre ansiedad, estrés o dormir.",
+  autoevaluacion: "La autoevaluación te ayuda a tener una idea orientativa de cómo te sientes hoy. No reemplaza a un profesional, pero puede ser un primer paso.",
   teleconsulta: "Si quieres apoyo humano, puedes agendar una teleconsulta y luego confirmar la cita desde el flujo de pago simulado.",
   solo: "Sentirse solo pesa mucho. Hoy puede ayudar escribirle a alguien de confianza, salir al aire libre unos minutos o pedir apoyo profesional si lo necesitas.",
   energia: "Cuando falta energia, intenta bajar el objetivo del dia: agua, comida simple, una pausa y una tarea pequeña. A veces lo minimo ya es suficiente.",
@@ -59,7 +59,7 @@ function getResponse(input: string): string {
 
 export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
-    { id: "welcome", role: "bot", text: "¡Hola! Soy tu asistente de bienestar. ¿Cómo te sientes hoy? Puedes escribirme o usar las sugerencias rápidas." },
+      { id: "welcome", role: "bot", text: "¡Hola! Soy tu asistente de bienestar. ¿Cómo te sientes hoy? Puedes escribirme o usar las sugerencias rápidas." },
   ]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
@@ -114,7 +114,7 @@ export default function Chatbot() {
           </p>
           <h1 className="text-3xl font-bold mb-2">Chatbot de Apoyo</h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Puedes hablar de ansiedad, estres, sueno, musica, autoevaluacion o pedir orientacion para agendar apoyo.
+            Puedes hablar de ansiedad, estrés, sueño, música, autoevaluación o pedir orientación para agendar apoyo.
           </p>
         </div>
 

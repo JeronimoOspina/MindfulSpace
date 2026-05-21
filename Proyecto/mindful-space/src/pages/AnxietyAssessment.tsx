@@ -29,9 +29,9 @@ export default function AnxietyAssessment() {
   return (
     <div className="min-h-screen py-12 px-4">
       <div className="container mx-auto max-w-3xl">
-        <h1 className="text-3xl font-bold text-center mb-2">Autoevaluacion</h1>
+        <h1 className="text-3xl font-bold text-center mb-2">Autoevaluación</h1>
         <p className="text-center text-muted-foreground mb-8">
-          Test orientativo de ansiedad. No reemplaza evaluacion profesional.
+          Test orientativo de ansiedad. No reemplaza evaluación profesional.
         </p>
 
         {isLoading && <p className="text-center">Cargando test...</p>}

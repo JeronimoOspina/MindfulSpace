@@ -38,9 +38,9 @@ export default function Library() {
     <div className="min-h-screen py-12 px-4">
       <div className="container mx-auto max-w-4xl">
         <h1 className="text-3xl font-bold mb-2 text-center">Biblioteca de Bienestar</h1>
-        <p className="text-center text-muted-foreground mb-10">Articulos practicos para ansiedad, estres y descanso</p>
+        <p className="text-center text-muted-foreground mb-10">Artículos prácticos para ansiedad, estrés y descanso</p>
 
-        {loading && <p className="text-center">Cargando articulos...</p>}
+        {loading && <p className="text-center">Cargando artículos...</p>}
         {error && <p className="text-center text-destructive">{error}</p>}
 
         <div className="grid gap-4">
